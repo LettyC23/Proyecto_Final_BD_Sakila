@@ -1,10 +1,49 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="es">
+
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Iniciar Sesión</title>
+
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Vista/Scripts/estilos/style.css" >
+
 </head>
 <body>
+    <div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <div class="modal-content">
+    <div style="font-family: Arial, Helvetica, sans-serif;" class="form-group">
+        <div >
+        <h1> <br> Iniciar Sesión</h1>
+        <form name="loginform" id="loginform"method="POST" action="../Modelos/procesar_validacion_usuarios.php" onsubmit="return validarIniciarSesion()">
+            <p>
+                <label >Nombre De Usuario<br/>
+                <input type="text" name="caja_usuario" id="caja_usuario" class="input" value="" size="20" required></label>
+            </p>
+            <p>
+                <label >Contraseña<br/>
+                <input type="password" name="caja_contraseña" id="caja_contraseña" class="input" value="" size="20" required></label>
+               <br>
+            </p>
+            <button type="submit" class="button"><i class="fas fa-sign-in-alt"></i>  Ingresar </button><br>
 
+            <p class="regtext">No estas registrado? <a href="formulario_registrar_usuario.php">Registrate Aquí</a>!</p>
+        </form>
+
+        </div>
+
+          </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
 </body>
+</html>
 </html>
