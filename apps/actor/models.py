@@ -1,6 +1,7 @@
 from django.db import models
 
 class Actor(models.Model):
+    actor_id = models.AutoField(primary_key = True)
     first_name = models.CharField(blank=True, max_length=45, verbose_name='first name')
     last_name = models.CharField(blank=True, max_length=45, verbose_name='last name')
     last_update = models.DateTimeField(blank=True, max_length=45, verbose_name='last update')
