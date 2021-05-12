@@ -1,7 +1,7 @@
 from django.urls import path
-from.views import Home
+from .views import crearActor
+
 
 urlpatterns = [
-
-    path('',Home, name = 'index')
+path('crear_actor/', crearActor, name = 'crear_actor')
 ]

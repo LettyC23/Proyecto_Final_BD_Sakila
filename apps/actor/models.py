@@ -1,6 +1,11 @@
 from django.db import models
 
-class Actor(models.Model):
+class SingletonModel(models.Model):
+    def save (self, *args, **kwargs):
+        self.object.pk = 1
+        super().save(*args, **kwargs)
+
+class Actor(SingletonModel):
     actor_id = models.AutoField(primary_key = True)
     first_name = models.CharField(blank=True, max_length=45, verbose_name='first name')
     last_name = models.CharField(blank=True, max_length=45, verbose_name='last name')
