@@ -1,4 +1,7 @@
 from django.contrib import admin
-from .models import Actor
+from .models import *
 
-admin.site.register(Actor)
+@admin.register(Actor)
+#@admin.register(Country)
+class SettingsAdmin(admin.ModelAdmin):
+    pass
