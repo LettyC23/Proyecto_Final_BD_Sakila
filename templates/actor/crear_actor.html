@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +8,10 @@
     <title>Creación de Actor</title>
 </head>
 <body>
-
+    <form method="POST">
+        {% csrf_token %}
+        {{actor_form.as_p}}
+        <button type="submit"> Registrar</button>
+    </form>
 </body>
 </html>

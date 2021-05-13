@@ -1,5 +1,6 @@
-from django import forms 
+from django import forms
 from .models import Actor
+
 
 class ActorForm(forms.ModelForm):
     class Meta:
