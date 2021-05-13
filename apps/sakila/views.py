@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import *
+from .models import *
 
 def Home(request):
     return render(request, 'index.html')
@@ -12,4 +13,8 @@ def crearActor(request):
             return  redirect('index')
     else:
         actor_form =ActorForm()
-    return render(request, 'actor/crear_actor.html', {'actor_form':actor_form})
+    return render(request, 'sakila/crear_actor.html', {'actor_form':actor_form})
+
+def listarActor(request):
+    actores = Actor.objects.all()
+    return render(request, 'sakila/listar_actor.html',{'actores':actores})

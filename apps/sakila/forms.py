@@ -1,5 +1,5 @@
 from django import forms
-from .models import Actor
+from .models import *
 
 
 class ActorForm(forms.ModelForm):
