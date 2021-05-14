@@ -15,12 +15,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% for actor in actores %}
+                {% for first_name in actores %}
                     <tr>
-                        <td>{{ autor.actor_id }}</td>
-                        <td>{{ autor.first_name }}</td>
-                        <td>{{ autor.last_name }}</td>
-                        <td>{{ autor.last_update }}</td>
+                        <td>{{ first_name.actor_id }}</td>
+                        <td>{{ first_name.first_name }}</td>
+                        <td>{{ first_name.last_name }}</td>
+                        <td>{{ first_name.last_update }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
