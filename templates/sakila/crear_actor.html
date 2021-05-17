@@ -5,8 +5,11 @@
 {% block body %}
 <form method="POST">
     {% csrf_token %}
+    {% if error %}
+        <h2>{{ error }}</h2>
+    {% else %}
         {{actor_form.as_p}}
-        <button type="submit"> Registrar</button>
+    {% endif %}
 </form>
 
 {% endblock body %}

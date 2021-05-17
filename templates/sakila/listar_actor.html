@@ -12,6 +12,7 @@
                     <th>first_name</th>
                     <th>last_name</th>
                     <th>last_update</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,9 @@
                         <td>{{ first_name.first_name }}</td>
                         <td>{{ first_name.last_name }}</td>
                         <td>{{ first_name.last_update }}</td>
+                        <td>
+                            <a href="{% url 'sakila:editar_actor' first_name.actor_id  %}">Editar</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
