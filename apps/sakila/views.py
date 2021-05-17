@@ -38,7 +38,5 @@ def editarActor(request, actor_id):
 
 def eliminarActor (request, actor_id):
     actor = Actor.objects.get(actor_id = actor_id)
-    if request.method == 'POST':
-        actor.delete()
-        return redirect('sakila:listar_actor')
-    return redirect(request,'sakila/eliminar_actor.html',{'actor':actor})
+    actor.delete()
+    return redirect('sakila:listar_actor')

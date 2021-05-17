@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% block titulo %}
+    Actores
+{% endblock titulo %}
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <h2>¿Desea eliminar el rregistro {{ first_name.first_name }} </h2>
+        <button type="submit">Eliminar</button>
+        <a href="{% url 'sakila:listar_actor' %}">Cancelar</a>
+</form>
+
+{% endblock body %}

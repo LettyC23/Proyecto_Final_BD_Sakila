@@ -24,6 +24,7 @@
                         <td>{{ first_name.last_update }}</td>
                         <td>
                             <a href="{% url 'sakila:editar_actor' first_name.actor_id  %}">Editar</a>
+                            <a href="{% url 'sakila:eliminar_actor' first_name.actor_id  %}">Eliminar</a>
                         </td>
                     </tr>
                 {% endfor %}
