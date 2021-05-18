@@ -4,7 +4,7 @@
 {% endblock titulo %}
 {% block body %}
 <style>
-     a {
+     #a {
       background-color: red;
       border: none;
       color: white;
@@ -17,12 +17,13 @@
 </style>
 <form method="POST">
     {% csrf_token %}
-    {% if error %}
-        <h2>{{ error }}</h2>
-    {% else %}
-        {{actor_form.as_p}}
-    <a href="{% url 'sakila:listar_actor'   %}">Guardar</a>
-    {% endif %}
+
+    {{actor_form.as_p}}
+    <button id="a" >Guardar</button>
+
+
+
+
 </form>
 
 {% endblock body %}

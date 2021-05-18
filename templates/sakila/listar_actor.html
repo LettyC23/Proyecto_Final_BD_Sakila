@@ -10,12 +10,11 @@
 #customers {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
-            width: 100%;
+            width: 95%;
             height: 50px;
-
+            float: left;
           }
           #customers td, #customers th{
-
             padding: 12px;
           }
 
@@ -29,7 +28,6 @@
             text-align: center;
             background-color: #295191;
             color: white;
-
           }
 
           th{
@@ -39,7 +37,6 @@
           }
 
           .scroll{
-
               overflow: auto;
               width: 100%;
               height: 300px;
@@ -47,22 +44,169 @@
     #table {
 	border-collapse: collapse;
     width: 100%;
-
+    display: block;
 }
-    a {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+    #a {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display:block;
+      font-size: 16px;
+      float: left;
   }
+    #e {
+      background-color: blue;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      float: center;
+  }
+  #d {
+      background-color: red;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      float: right;
+  }
+
+    body{
+        min-height: 100vh;
+
+    }
+
+
+    .nav{
+        overflow: hidden;
+        background-color:  #1B396A;
+        position: sticky;
+        top: 0;
+    }
+
+
+    .nav a{
+        font-family: Arial, Helvetica, sans-serif;
+        float: left;
+        display: block;
+        color: white;
+        padding: 14px 0px;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    .nav a.right{
+        float: right;
+    }
+
+    li{
+    list-style-type:none;
+    position: relative;
+
+    }
+
+    li a{
+        text-decoration:none;
+        display:block;
+        padding:5px 10px;
+        width:80px;
+        height:50px;
+        border:1px solid #1B396A;
+        color:#fff;
+        background-color: #1B396A;
+    }
+
+    li a:hover{
+        text-decoration:none;
+        display:block;
+        padding:5px 10px;
+        width:140px;
+        height:80px;
+        border:1px solid #1B396A;
+        color:#fff;
+        background-color: #1B396A;
+
+    }
+
+    nav li ul{
+        display:none;
+        position:absolute;
+        top:0px;
+        left:120px;
+    }
+
+    nav li:hover ul{
+        display:block;
+    }
+
+    aside{
+        display: flex;
+        flex: 5%;
+        background-color:white;
+
+
+    }
+
+    section{
+        display: flex;
+        flex: 95%;
+        background-color:lightgray;
+
+    }
+    #left{
+        display: block;
+        flex: 95%;
+        background-color:lightgray;
+
+    }
+
 </style>
-    <a  href="{% url 'sakila:crear_actor'   %}">Agregar Actor</a>
-    <p></p>
-        <table id="customers">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body >
+<div class="nav">
+        <a class="active" >INICIO</a>
+        <a class="right" >Mi Cuenta &emsp;&emsp;</a>
+        <a class="right" >Cerrar Sesión &emsp;&emsp;</a>
+
+    </div>
+    <section class="main">
+    <aside>
+            <div class="nav">
+                <nav>
+                <ul>
+                    <li><a> Actor</a></li>
+                    <li><a> City</a></li>
+                    <li><a> Country</a></li>
+                    <li><a> Films</a></li>
+                </ul>
+            </nav>
+
+            </div>
+        </aside>
+<div id="left" >
+    <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <input type="text" size="40" class="form-contol" placeholder="Buscar..." name="buscar">
+        <button type="submit" class="boton btn-success">Buscar</button>
+    <br><br>
+
+        <a id="a" href="{% url 'sakila:crear_actor'   %}">Agregar Actor</a>
+
+
+        <table class="left" id="customers">
+            <br><br><br>
             <thead>
                 <tr>
                     <th>actor_id</th>
@@ -80,8 +224,9 @@
                         <td>{{ first_name.last_name }}</td>
                         <td>{{ first_name.last_update }}</td>
                         <td>
-                            <a href="{% url 'sakila:editar_actor' first_name.actor_id  %}">Editar</a>
-                            <a href="{% url 'sakila:eliminar_actor' first_name.actor_id  %}">Eliminar</a>
+                            <a id="e" href="{% url 'sakila:editar_actor' first_name.actor_id  %}">Editar</a>
+
+                            <a id="d" href="{% url 'sakila:eliminar_actor' first_name.actor_id  %}">Eliminar</a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -90,5 +235,6 @@
     {% else %}
         <h1>No existen Actores registrados</h1>
     {% endif %}
-
+</div>
 {% endblock body %}
+    </section>

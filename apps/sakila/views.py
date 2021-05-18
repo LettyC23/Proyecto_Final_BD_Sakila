@@ -12,7 +12,7 @@ def crearActor(request):
         actor_form = ActorForm(request.POST)
         if actor_form.is_valid():
             actor_form.save()
-            return  redirect('index')
+            return  redirect('/sakila/listar_actor')
     else:
         actor_form =ActorForm()
     return render(request, 'sakila/crear_actor.html', {'actor_form':actor_form})
@@ -22,9 +22,6 @@ def listarActor(request):
     return render(request, 'sakila/listar_actor.html',{'actores':actores})
 
 def editarActor(request, actor_id):
-    actor_form = None
-    error = None
-    try:
         actor = Actor.objects.get(actor_id = actor_id)
         if request.method == 'GET':
             actor_form = ActorForm(instance = actor)
@@ -32,10 +29,9 @@ def editarActor(request, actor_id):
             actor_form =ActorForm(request.POST, instance = actor)
             if actor_form.is_valid():
                 actor_form.save()
-            redirect('index')
-    except ObjectDoesNotExist as e:
-        error = e
-    return render(request,'sakila/crear_actor.html',{'actor_form':actor_form,'error':error})
+            return redirect('sakila:listar_actor')
+
+        return render(request,'sakila/crear_actor.html',{'actor_form':actor_form})
 
 def eliminarActor (request, actor_id):
     actor = Actor.objects.get(actor_id = actor_id)
