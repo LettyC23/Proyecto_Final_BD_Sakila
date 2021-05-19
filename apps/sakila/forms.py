@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+import django_filters
 
 
 class ActorForm(forms.ModelForm):
