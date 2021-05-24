@@ -7,12 +7,14 @@ from .models import *
 def Home(request):
     return render(request, 'index.html')
 
+
+
 def crearActor(request):
     if request.method == 'POST':
         actor_form = ActorForm(request.POST)
         if actor_form.is_valid():
             actor_form.save()
-            return  redirect('/sakila/resultados_busqueda')
+            return  redirect('/sakila/buscar_actor')
     else:
         actor_form =ActorForm()
     return render(request, 'sakila/crear_actor.html', {'actor_form':actor_form})
@@ -29,14 +31,14 @@ def editarActor(request, actor_id):
             actor_form =ActorForm(request.POST, instance = actor)
             if actor_form.is_valid():
                 actor_form.save()
-            return redirect('sakila:resultados_busqueda')
+            return redirect('sakila:buscar_actor')
 
         return render(request,'sakila/crear_actor.html',{'actor_form':actor_form})
 
 def eliminarActor (request, actor_id):
     actor = Actor.objects.get(actor_id = actor_id)
     actor.delete()
-    return redirect('sakila:resultados_busqueda')
+    return redirect('sakila:buscar_actor')
 
 def filtrarActores(request):
     if 'prd' in request.GET != None:

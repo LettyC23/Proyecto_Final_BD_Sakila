@@ -1,6 +1,7 @@
 from django.urls import path
 from apps.sakila.views import *
 from apps.sakila import views
+
 urlpatterns = [
     path('crear_actor/', crearActor, name = 'crear_actor'),
     path('resultados_busqueda/', listarActor, name = 'listar_actor'),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('buscar_actor/', filtrarActores, name = 'buscar_actor'),
     path('listar_actor/', buscar, name = 'buscar'),
     path('resultados_busqueda/', buscar, name = 'resultados_busqueda'),
+
 ]
