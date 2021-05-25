@@ -17,8 +17,8 @@ def signin(request):
             if user:
                 login(request, user)
                 return redirect('sakila:buscar_actor')
-        else:
-            return render(request, 'signin.html')
+            else:
+                messages.error(request, 'Usuario o contraseña incorrectos!!')
 
     context = {
         'form': forms
@@ -27,6 +27,7 @@ def signin(request):
 
 
 def signup(request):
+
     forms = RegistrationForm()
     if request.method == 'POST':
         forms = RegistrationForm(request.POST)
@@ -47,6 +48,10 @@ def signup(request):
                         'error': 'This Username Already exists!'
                     }
                     return render(request, 'signin.html', context)
+            else:
+                messages.warning(request, 'Recuerda, La contraseña debe de coincidir!!')
+        else:
+            messages.warning(request, 'Recuerda,sólo letras en los campos de nombre y apellido!!')
     context = {
         'form': forms
     }

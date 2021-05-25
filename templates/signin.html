@@ -39,13 +39,13 @@
 				</h1>
 
 				<div class="form-group" data-validate = "Username is required">
-					<p >Username</p>
+					<p >Usuario</p>
 					{{ form.username }}
 					<p  data-symbol="&#xf206;"></p>
 				</div>
 
 				<div data-validate="Password is required">
-					<p>Password</p>
+					<p>Contraseña</p>
 					{{ form.password }}
 
 					<span data-symbol="&#xf190;"></span>
@@ -54,6 +54,11 @@
 
 
 				<div >
+					{% if messages %}
+                         	{% for message in messages %}
+						<p style="color: red;">{{ message }}</p>
+					{% endfor %}
+                          {% endif %}
 					<div >
 						<br>
 

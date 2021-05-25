@@ -4,7 +4,7 @@ class Actor(models.Model):
     actor_id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=45, null=False)
     last_name = models.CharField(max_length=45, null=False)
-    last_update = models.CharField(max_length=45,  null=False)
+    last_update = models.DateTimeField(auto_now=True)
 
 
 

@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
@@ -43,7 +44,7 @@ def eliminarActor (request, actor_id):
 def filtrarActores(request):
     if 'prd' in request.GET != None:
         prd= request.GET['prd']
-        actores=Actor.objects.filter(first_name=prd)
+        actores=Actor.objects.filter(Q(first_name__icontains=prd) | Q(actor_id__icontains=prd) | Q(last_name__icontains=prd) | Q(last_update__icontains=prd))
         return render(request, 'sakila/resultados_busqueda.html', {'actores': actores})
     else:
         actores = Actor.objects.all()
