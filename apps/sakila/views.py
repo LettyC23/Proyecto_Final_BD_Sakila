@@ -33,6 +33,7 @@ def editarActor(request, actor_id):
             if actor_form.is_valid():
                 actor_form.save()
             return redirect('sakila:buscar_actor')
+
         return render(request,'sakila/crear_actor.html',{'actor_form':actor_form})
 
 def eliminarActor (request, actor_id):
