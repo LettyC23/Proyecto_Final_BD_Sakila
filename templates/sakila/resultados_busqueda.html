@@ -35,7 +35,7 @@
             top: -1px;
           }
 
-          .scroll{
+          #scroll{
               overflow: auto;
               width: 100%;
               height: 300px;
@@ -187,7 +187,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
 </head>
-<body >
+<body  >
 <div class="nav">
         <a class="active" >INICIO</a>
         <a class="right" >Mi Cuenta &emsp;&emsp;</a>
@@ -210,7 +210,7 @@
         </aside>
 <div id="left" >
     <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <form  method="GET">
+    <form  method="GET" >
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
         <input type="text" name="prd">
@@ -221,8 +221,8 @@
 
         <a id="a" href="{% url 'sakila:crear_actor'   %}">Agregar Actor</a>
 
-
-        <table class="left" id="customers">
+        <div id="scroll">
+        <table class="left" id="customers" >
             <br><br><br>
             <thead>
                 <tr>
@@ -233,9 +233,9 @@
                     <th>Opciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 {% for first_name in actores %}
-                    <tr>
+                    <tr >
                         <td>{{ first_name.actor_id }}</td>
                         <td>{{ first_name.first_name }}</td>
                         <td>{{ first_name.last_name }}</td>
@@ -249,7 +249,7 @@
                 {% endfor %}
             </tbody>
         </table>
-
+    </div>
     </form>
 </div>
 
