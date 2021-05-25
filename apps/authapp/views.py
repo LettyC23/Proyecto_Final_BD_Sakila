@@ -54,4 +54,4 @@ def signup(request):
 
 def signout(request):
     logout(request)
-    return redirect('signin')
+    return redirect('authapp:signin')
