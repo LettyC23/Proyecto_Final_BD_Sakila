@@ -66,6 +66,7 @@ def buscar(request):
         actores = Actor.objects.all()
         return render(request, 'sakila/resultados_busqueda.html', {'actores': actores })
 
+
 class ListActoresPdf(View):
     def get(self, request, *args, **kwargs):
         actores = Actor.objects.all()

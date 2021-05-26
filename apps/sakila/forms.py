@@ -8,3 +8,8 @@ class ActorForm(forms.ModelForm):
         model = Actor
         fields = ['first_name', 'last_name']
 
+
+class AutorForm(forms.ModelForm):
+    class Meta:
+        model = Actor
+        fields = ['first_name','last_name']
