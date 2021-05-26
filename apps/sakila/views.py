@@ -1,9 +1,15 @@
 from django.db.models import Q
+from django.http import HttpResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
+from django.views import View
+
 from .forms import *
 from .models import *
+from .utils import render_to_pdf
+from ..authapp.forms import RegistrationForm
+from django.contrib import messages
 
 def Home(request):
     return render(request, 'index.html')
@@ -59,3 +65,12 @@ def buscar(request):
     else:
         actores = Actor.objects.all()
         return render(request, 'sakila/resultados_busqueda.html', {'actores': actores })
+
+class ListActoresPdf(View):
+    def get(self, request, *args, **kwargs):
+        actores = Actor.objects.all()
+        data = {
+            'actores':actores
+        }
+        pdf = render_to_pdf('sakila/lista.html', data)
+        return HttpResponse(pdf, content_type='application/pdf')

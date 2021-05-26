@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth import login, logout
-from django.urls import path, include
+from django.urls import path, include, re_path
 from apps.sakila.views import Home
 
 

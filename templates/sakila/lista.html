@@ -1,0 +1,25 @@
+
+<h1> Lista de Actores</h1>
+<table >
+            <br><br><br>
+            <thead>
+                <tr>
+                    <th>actor_id</th>
+                    <th>first_name</th>
+                    <th>last_name</th>
+                    <th>last_update</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if actores %}
+                {% for first_name in actores %}
+                    <tr>
+                        <td>{{ first_name.actor_id }}</td>
+                        <td>{{ first_name.first_name }}</td>
+                        <td>{{ first_name.last_name }}</td>
+                        <td>{{ first_name.last_update }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>

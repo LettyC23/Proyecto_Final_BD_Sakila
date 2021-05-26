@@ -10,5 +10,6 @@ urlpatterns = [
     path('buscar_actor/', filtrarActores, name = 'buscar_actor'),
     path('listar_actor/', buscar, name = 'buscar'),
     path('resultados_busqueda/', buscar, name = 'resultados_busqueda'),
+    path('listar_actores/', views.ListActoresPdf.as_view(), name = 'actores_all'),
 
 ]
