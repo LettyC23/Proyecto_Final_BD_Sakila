@@ -41,13 +41,15 @@ def signup(request):
             if password == confirm_password:
                 try:
                     User.objects.create_user(username=username, password=password, email=email, first_name=firstname, last_name=lastname)
-                    return redirect('signin')
+
+                    return redirect( '/auth/signin')
                 except:
                     context = {
                         'form': forms,
                         'error': 'This Username Already exists!'
                     }
-                    return render(request, 'signin.html', context)
+                    messages.warning(request, 'Este Usuario ya existe!! Usa otro nombre de usuario')
+                    return render(request, 'signup.html', context)
             else:
                 messages.warning(request, 'Recuerda, La contraseña debe de coincidir!!')
         else:
@@ -55,6 +57,7 @@ def signup(request):
     context = {
         'form': forms
     }
+
     return render(request, 'signup.html', context)
 
 def signout(request):
